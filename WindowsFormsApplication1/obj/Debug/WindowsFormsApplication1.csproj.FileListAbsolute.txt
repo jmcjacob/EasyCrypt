@@ -32,7 +32,6 @@ C:\Users\computing\Downloads\WindowsFormsApplication1\WindowsFormsApplication1\W
 C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
-C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\bin\Debug\Database.accdb
 C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache

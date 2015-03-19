@@ -171,7 +171,6 @@ namespace GroupProject
                 {
                     textBox1.Text = UID;
                 }
-                
             }
         }
 
@@ -203,9 +202,9 @@ namespace GroupProject
                         {
                             if (textBox1.Text != "")
                             {
+// THIS IS A SHIT!!!
                                 OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
-                                command3.ExecuteNonQuery();
-                                MessageBox.Show("Done!");
+                                MessageBox.Show("Done! " + Convert.ToString(command3.ExecuteNonQuery()));
                                 Application.Restart();
                             }
                             else
