@@ -159,15 +159,19 @@ namespace GroupProject
                     OleDbCommand command = new OleDbCommand("SELECT Profile FROM Login WHERE UID = \"" + searchForTag() + "\";", connection);
                     connection.Open();
                     OleDbDataReader reader = command.ExecuteReader();
-                    reader.Read();
-
-                    Form2 newForm = new Form2();
-                    newForm.profileName = reader.GetString(0);
-                    connection.Close();
-                    newForm.label1.Text = "Hello There " + newForm.profileName + "!";
-
-                    this.Hide();
-                    newForm.Show();
+                    if (reader.Read())
+                    {
+                        Form2 newForm = new Form2();
+                        newForm.profileName = reader.GetString(0);
+                        connection.Close();
+                        newForm.label1.Text = "Hello There " + newForm.profileName + "!";
+                        this.Hide();
+                        newForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry No NFC Tag was found!");
+                    }
                 }
             }
             else
@@ -177,15 +181,20 @@ namespace GroupProject
                     OleDbCommand command = new OleDbCommand("SELECT Profile FROM Login WHERE Password = \"" + textBox1.Text + "\";", connection);
                     connection.Open();
                     OleDbDataReader reader = command.ExecuteReader();
-                    reader.Read();
-
-                    Form2 newForm = new Form2();
-                    newForm.profileName = reader.GetString(0);
-                    connection.Close();
-                    newForm.label1.Text = "Hello There " + newForm.profileName + "!";
-
-                    this.Hide();
-                    newForm.Show();
+                    if (reader.Read())
+                    {
+                        Form2 newForm = new Form2();
+                        newForm.profileName = reader.GetString(0);
+                        connection.Close();
+                        newForm.label1.Text = "Hello There " + newForm.profileName + "!";
+                        this.Hide();
+                        newForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry that password has not been found!");
+                        textBox1.Text = "";
+                    }
                 }
             }
         }

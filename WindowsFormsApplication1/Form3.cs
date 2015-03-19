@@ -147,11 +147,69 @@ namespace GroupProject
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             SelectDevice();
             establishContext();
-            textBox1.Text = searchForTag();
+            string UID = searchForTag();
+            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
+            {
+                OleDbCommand command = new OleDbCommand("SELECT UID FROM Login WHERE UID = \"" + UID + "\";", connection);
+                connection.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    MessageBox.Show("Tag already assigned to a profile!");
+                }
+                else
+                {
+                    textBox1.Text = UID;
+                }
+                
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox3.Text == textBox4.Text)
+            {
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
+                {
+                    OleDbCommand command1 = new OleDbCommand("SELECT Profile FROM Login WHERE Profile = \"" + textBox2.Text + "\";", connection);
+                    connection.Open();
+                    OleDbDataReader reader1 = command1.ExecuteReader();
+                    if (reader1.Read())
+                    {
+                        MessageBox.Show("Profile Name already exsits!");
+                            textBox2.Text = "";
+                    }
+                    else
+                    {
+                        OleDbCommand command2 = new OleDbCommand("SELECT Password FROM Login WHERE Password = \"" + textBox3.Text + "\";", connection);
+                        connection.Open();
+                        OleDbDataReader reader2 = command1.ExecuteReader();
+                        if (reader2.Read())
+                        {
+                            MessageBox.Show("Password already exsists!");
+                            textBox3.Text = "";
+                            textBox4.Text = "";
+                        }
+                        else
+                        {
+                            //This is where the fun begins
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Passwords do not match!");
+            }
         }
     }
 }
