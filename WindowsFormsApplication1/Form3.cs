@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -191,8 +192,7 @@ namespace GroupProject
                     else
                     {
                         OleDbCommand command2 = new OleDbCommand("SELECT Password FROM Login WHERE Password = \"" + textBox3.Text + "\";", connection);
-                        connection.Open();
-                        OleDbDataReader reader2 = command1.ExecuteReader();
+                        OleDbDataReader reader2 = command2.ExecuteReader();
                         if (reader2.Read())
                         {
                             MessageBox.Show("Password already exsists!");
@@ -201,7 +201,17 @@ namespace GroupProject
                         }
                         else
                         {
-                            //This is where the fun begins
+                            if (textBox1.Text != "")
+                            {
+                                OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
+                                command3.ExecuteNonQuery();
+                                MessageBox.Show("Done!");
+                                Application.Restart();
+                            }
+                            else
+                            {
+                                MessageBox.Show("You need an NFC Tag!");
+                            }
                         }
                     }
                 }
@@ -210,6 +220,18 @@ namespace GroupProject
             {
                 MessageBox.Show("Passwords do not match!");
             }
+        }
+
+        string newKey()
+        {
+            string path = Path.GetRandomFileName();
+            path = path.Replace(".", "");
+            return path;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
