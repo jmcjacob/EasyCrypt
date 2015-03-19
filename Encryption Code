@@ -1,0 +1,95 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string encryptDecrypt(string, string);
+int main()
+{
+
+	//LFC_String = scanned LFC string   //depend on how works might need to place into char array
+	//LFC_Key = hashEncrypt(LFC_String);
+
+	//createKey (database encryption key, LFC_Key)
+
+	//string path = Get file locaton
+	//fileData = readFile(filePath) // Get file data to encrypt
+
+	//encrytedFile = encryptDecrypt(createKey,fileData);
+
+
+/* there for testing purpose and reminder
+	string encrypted = encryptDecrypt("kylewbanks.com");
+	cout << "Encrypted:" << encrypted << "\n";
+
+	string decrypted = encryptDecrypt(encrypted);
+	cout << "Decrypted:" << decrypted << "\n";
+*/
+
+	system("pause");
+}
+
+//add another argu to take key from LFC to then perform encryption
+string encryptDecrypt(string userKey, string toEncrypt) {
+
+	//char key[] = { '0', '4','c','b','0','a','2','2' }; //there for testing and reminder
+	//turn userKey into char array (a little bit different in c++)
+
+	string output = toEncrypt;
+
+	for (int i = 0; i < toEncrypt.size(); i++)
+		output[i] = toEncrypt[i] ^ key[i % (sizeof(key) / sizeof(char))];
+
+	return output;
+}
+
+//Create key(string dataKey, string LFCKey) takes LFC string
+//{
+//
+//turn string to char array[]
+//encrypt hash key with stored private key to create user key
+//{
+/*	for (int i = 0; i < LFCKey.size(); i++)
+output[i] = LFCKey[i] ^ key[i % (sizeof(key) / sizeof(char))];
+*/
+//}
+//return key
+//
+//}
+
+//hashEncrypt()?? could do or perform another xor 
+//{
+//
+//
+//}
+
+//readFile(path) maybe in binary format so it's loaded into memory/string method 
+//{
+//	locate file
+//	if file is good, store information
+//	return data
+//}
+
+//writeFile(file data[string array?])
+//{
+//
+//
+//}
+
+//another way to look at xor just incase
+
+/*string original = "super flying monkeys are aweseome, aren't they?";
+cout << "Original data = " << original;
+string encrypted = "";
+string unencrypt = "";
+char key = 'xrt';
+
+for (int temp = 0; temp < original.size(); temp++){
+encrypted += original[temp] ^ (int(key) + temp) % 255;
+}
+cout << "\nEncrypted data = " << encrypted;
+
+for (int temp = 0; temp < original.size(); temp++){
+unencrypt += encrypted[temp] ^ (int(key) + temp) % 255;
+}
+cout << "\nUnencrypted data = " << unencrypt;
+*/
