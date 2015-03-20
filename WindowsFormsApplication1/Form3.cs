@@ -111,7 +111,7 @@ namespace GroupProject
             return true;
         }
 
-        private string getcardUID()//only for mifare 1k cards
+        private string getcardUID()
         {
             string cardUID = "";
             byte[] receivedUID = new byte[256];
