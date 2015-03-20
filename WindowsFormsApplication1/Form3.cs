@@ -158,7 +158,7 @@ namespace GroupProject
             SelectDevice();
             establishContext();
             string UID = searchForTag();
-            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database;Persist Security Info=False;"))
+            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
             {
                 OleDbCommand command = new OleDbCommand("SELECT UID FROM Login WHERE UID = \"" + UID + "\";", connection);
                 connection.Open();
@@ -202,9 +202,9 @@ namespace GroupProject
                         {
                             if (textBox1.Text != "")
                             {
-                                // THIS IS A SHIT!!!
                                 OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
-                                MessageBox.Show("Done! " + Convert.ToString(command3.ExecuteNonQuery()));
+                                command3.ExecuteNonQuery();
+                                MessageBox.Show(textBox2.Text + " Added!");
                                 Application.Restart();
                             }
                             else
