@@ -5,11 +5,6 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{31565760-B698-4A03-8FE1-CA03875814CF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E972120C-73A5-4DFA-B3E3-A614186D145A}"
-	ProjectSection(SolutionItems) = preProject
-		WindowsFormsApplication1\bin\Debug\Database.accdb = WindowsFormsApplication1\bin\Debug\Database.accdb
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
