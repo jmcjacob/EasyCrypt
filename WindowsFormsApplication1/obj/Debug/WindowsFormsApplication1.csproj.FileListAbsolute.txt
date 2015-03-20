@@ -51,5 +51,5 @@ E:\Documents\Projects\Group-Project\WindowsFormsApplication1\obj\Debug\GroupProj
 E:\Documents\Projects\Group-Project\WindowsFormsApplication1\obj\Debug\GroupProject.Form3.resources
 E:\Documents\Projects\Group-Project\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 E:\Documents\Projects\Group-Project\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
-E:\Documents\Projects\Group-Project\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form4.resources
 E:\Documents\Projects\Group-Project\WindowsFormsApplication1\bin\Debug\Database.accdb
+E:\Documents\Projects\Group-Project\WindowsFormsApplication1\obj\Debug\GroupProject.Form4.resources

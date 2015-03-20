@@ -205,5 +205,12 @@ namespace GroupProject
             this.Hide();
             thing.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form4 thing = new Form4();
+            this.Hide();
+            thing.Show();
+        }
     }
 }

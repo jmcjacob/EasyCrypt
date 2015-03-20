@@ -185,7 +185,7 @@ namespace GroupProject
                     OleDbDataReader reader1 = command1.ExecuteReader();
                     if (reader1.Read())
                     {
-                        MessageBox.Show("Profile Name already exsits!");
+                        MessageBox.Show("Profile Name already exists!");
                             textBox2.Text = "";
                     }
                     else
@@ -194,7 +194,7 @@ namespace GroupProject
                         OleDbDataReader reader2 = command2.ExecuteReader();
                         if (reader2.Read())
                         {
-                            MessageBox.Show("Password already exsists!");
+                            MessageBox.Show("Password already exists!");
                             textBox3.Text = "";
                             textBox4.Text = "";
                         }
@@ -205,7 +205,10 @@ namespace GroupProject
                                 OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
                                 command3.ExecuteNonQuery();
                                 MessageBox.Show(textBox2.Text + " Added!");
-                                Application.Restart();
+                                textBox1.Text = "";
+                                textBox2.Text = "";
+                                textBox3.Text = "";
+                                textBox4.Text = "";
                             }
                             else
                             {

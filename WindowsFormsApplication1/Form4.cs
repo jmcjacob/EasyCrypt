@@ -180,7 +180,53 @@ namespace GroupProject
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // This is where you put the stuff that will make it work.
+            if (textBox3.Text == textBox4.Text)
+            {
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
+                {
+                    OleDbCommand command1 = new OleDbCommand("SELECT Profile FROM Login WHERE Profile = \"" + textBox2.Text + "\";", connection);
+                    connection.Open();
+                    OleDbDataReader reader1 = command1.ExecuteReader();
+                    if (reader1.Read())
+                    {
+                        OleDbCommand command2 = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + textBox2.Text + "\";", connection);
+                        OleDbDataReader reader2 = command2.ExecuteReader();
+                        reader2.Read();
+                        if (reader2.GetString(0) == textBox3.Text)
+                        {
+                            OleDbCommand command3 = new OleDbCommand("SELECT UID FROM Login WHERE Profile = \"" + textBox2.Text + "\";", connection);
+                            OleDbDataReader reader3 = command3.ExecuteReader();
+                            reader3.Read();
+                            if (reader3.GetString(0) == textBox1.Text)
+                            {
+                                OleDbCommand command4 = new OleDbCommand("DELETE FROM Login Where Profile = \"" + textBox2.Text + "\";", connection);
+                                command4.ExecuteNonQuery();
+                                MessageBox.Show(textBox2.Text +" Deleted!");
+                                textBox1.Text = "";
+                                textBox2.Text = "";
+                                textBox3.Text = "";
+                                textBox4.Text = "";
+                            }
+                            else
+                            {
+                                MessageBox.Show("The NFC tag dose not match!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("The Password dose not match the profile!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("The Profile dose not exist!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Passwords do not match!");
+            }
         }
 
 
