@@ -31,13 +31,9 @@ namespace GroupProject
                 OleDbCommand command = new OleDbCommand("SELECT File FROM Files WHERE Profile = \"" + profileName + "\";", connection);
                 connection.Open();
                 OleDbDataReader reader = command.ExecuteReader();
-                reader.Read();
-                int count = 0;
-
-                while (reader.GetString(count) != null)
+                if (reader.Read())
                 {
-                    encyptedFiles.Add(reader.GetString(count));
-                    count++;
+                    
                 }
                 connection.Close();
             }
