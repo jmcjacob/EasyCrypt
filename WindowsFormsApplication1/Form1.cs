@@ -190,7 +190,8 @@ namespace GroupProject
                         if (reader.GetString(0) == textBox1.Text)
                         {
                             Form2 newForm = new Form2();
-                            newForm.profileName = reader.GetString(0);
+                            newForm.profileName = textBox2.Text;
+                            newForm.label1.Text = "Hello There " + newForm.profileName + "!";
                             connection.Close();
                             this.Hide();
                             newForm.Show();
