@@ -16,17 +16,16 @@ namespace GroupProject
     public partial class Form2 : Form
     {
         public string profileName;
-        public List<string> encyptedFiles;
+        public List<string> encyptedFiles = new List<string>();
 
         public Form2()
         {
             InitializeComponent();
             label1.Text = "Hello " + profileName;
-            setFiles();
         }
 
         // THIS NEEDS WORK
-        private void setFiles()
+        public void setFiles()
         {
             using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
             {
@@ -35,16 +34,23 @@ namespace GroupProject
                 OleDbDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    Debug.WriteLine("Read!");
-                    for (int i = 0; i < reader.VisibleFieldCount; i++)
+                    Object[] values = new Object[reader.FieldCount];
+                    for (int i = 0; i <= reader.GetValues(values); i++)
                     {
-                        Debug.WriteLine(reader.GetString(i));
-                        encyptedFiles.Add(reader.GetString(i));
+                        encyptedFiles.Add(values[i].ToString());
+                        Debug.WriteLine(values[i]);
+                        
+
                     }
+                    connection.Close();
                 }
-                connection.Close();
+                else
+                {
+                    Debug.WriteLine("NOPE");
+                }
             }
-            listBox2.DataSource = encyptedFiles;
+            comboBox1.DataSource = encyptedFiles;
+            //.DataSource = encyptedFiles;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

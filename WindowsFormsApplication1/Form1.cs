@@ -167,6 +167,8 @@ namespace GroupProject
                         newForm.profileName = reader.GetString(0);
                         connection.Close();
                         newForm.label1.Text = "Hello There " + newForm.profileName + "!";
+                       // newForm.setFiles();
+                        connection.Close();
                         this.Hide();
                         newForm.Show();
                     }
@@ -192,6 +194,7 @@ namespace GroupProject
                             Form2 newForm = new Form2();
                             newForm.profileName = textBox2.Text;
                             newForm.label1.Text = "Hello There " + newForm.profileName + "!";
+                           // newForm.setFiles();
                             connection.Close();
                             this.Hide();
                             newForm.Show();
