@@ -152,6 +152,8 @@ namespace GroupProject
         {
             if (textBox1.Text == "")
             {
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
                 SelectDevice();
                 establishContext();
                 using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
@@ -171,6 +173,8 @@ namespace GroupProject
                     else
                     {
                         MessageBox.Show("Sorry No NFC Tag was found!");
+                        textBox1.Enabled = true;
+                        textBox2.Enabled = true;
                     }
                 }
             }
@@ -178,21 +182,31 @@ namespace GroupProject
             {
                 using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
                 {
-                    OleDbCommand command = new OleDbCommand("SELECT Profile FROM Login WHERE Password = \"" + textBox1.Text + "\";", connection);
+                    OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + textBox2.Text + "\";", connection);
                     connection.Open();
                     OleDbDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        Form2 newForm = new Form2();
-                        newForm.profileName = reader.GetString(0);
-                        connection.Close();
-                        this.Hide();
-                        newForm.Show();
+                        if (reader.GetString(0) == textBox1.Text)
+                        {
+                            Form2 newForm = new Form2();
+                            newForm.profileName = reader.GetString(0);
+                            connection.Close();
+                            this.Hide();
+                            newForm.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sorry there was an error logging in!");
+                            textBox1.Text = "";
+                            textBox2.Text = "";
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Sorry that password has not been found!");
+                        MessageBox.Show("Sorry there was an error logging in!");
                         textBox1.Text = "";
+                        textBox2.Text = "";
                     }
                 }
             }
