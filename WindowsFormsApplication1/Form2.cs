@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Diagnostics;
 
 namespace GroupProject
 {
@@ -34,8 +35,10 @@ namespace GroupProject
                 OleDbDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
+                    Debug.WriteLine("Read!");
                     for (int i = 0; i < reader.VisibleFieldCount; i++)
                     {
+                        Debug.WriteLine(reader.GetString(i));
                         encyptedFiles.Add(reader.GetString(i));
                     }
                 }
