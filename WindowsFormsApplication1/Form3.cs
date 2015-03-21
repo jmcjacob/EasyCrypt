@@ -190,30 +190,19 @@ namespace GroupProject
                     }
                     else
                     {
-                        OleDbCommand command2 = new OleDbCommand("SELECT Password FROM Login WHERE Password = \"" + textBox3.Text + "\";", connection);
-                        OleDbDataReader reader2 = command2.ExecuteReader();
-                        if (reader2.Read())
+                        if (textBox1.Text != "")
                         {
-                            MessageBox.Show("Password already exists!");
+                            OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
+                            command3.ExecuteNonQuery();
+                            MessageBox.Show(textBox2.Text + " Added!");
+                            textBox1.Text = "";
+                            textBox2.Text = "";
                             textBox3.Text = "";
                             textBox4.Text = "";
                         }
                         else
                         {
-                            if (textBox1.Text != "")
-                            {
-                                OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
-                                command3.ExecuteNonQuery();
-                                MessageBox.Show(textBox2.Text + " Added!");
-                                textBox1.Text = "";
-                                textBox2.Text = "";
-                                textBox3.Text = "";
-                                textBox4.Text = "";
-                            }
-                            else
-                            {
-                                MessageBox.Show("You need an NFC Tag!");
-                            }
+                            MessageBox.Show("You need an NFC Tag!");
                         }
                     }
                 }
