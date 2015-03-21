@@ -34,13 +34,11 @@ namespace GroupProject
                 OleDbDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    Object[] values = new Object[reader.FieldCount];
-                    for (int i = 0; i <= reader.GetValues(values); i++)
+                    for (int i = 0; i <= reader.Depth; i++)
                     {
-                        encyptedFiles.Add(values[i].ToString());
-                        Debug.WriteLine(values[i]);
-                        
-
+                        encyptedFiles.Add(reader.GetString(i));
+                        Debug.WriteLine(reader.GetString(i));
+                        reader.NextResult();
                     }
                     connection.Close();
                 }
@@ -66,6 +64,42 @@ namespace GroupProject
             {
                 textBox1.Text = ofd.FileName;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
+            {
+                connection.Open();
+                OleDbCommand command1 = new OleDbCommand("SELECT File FROM Files WHERE File = \"" + textBox1.Text + "\";", connection);
+                OleDbDataReader reader = command1.ExecuteReader();
+                if (reader.Read())
+                {
+                    // Error Box should go here that makes sence.
+                    MessageBox.Show("Hmmm");
+                    textBox1.Text = "";
+                }
+                else
+                {
+                    OleDbCommand command = new OleDbCommand("INSERT INTO Files VALUES (\"" + profileName + "\", \"" + textBox1.Text + "\", \"" + key() + "\");", connection);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show(textBox1.Text + " Has been Added!");
+                    encyptedFiles.Add(textBox1.Text);
+                    comboBox1.DataSource = encyptedFiles;
+                    connection.Close();
+                    textBox1.Text = "";
+                }
+            }
+        }
+
+        private string key()
+        {
+            return "Key";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
