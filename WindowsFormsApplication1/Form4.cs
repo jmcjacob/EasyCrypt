@@ -141,8 +141,15 @@ namespace GroupProject
                 if (retCode == Card.SCARD_S_SUCCESS)
                 {
                     string UID = getcardUID();
-                    Debug.WriteLine("UID: " + UID);
-                    return UID;
+                    if (UID != "Error")
+                    {
+                        Debug.WriteLine("UID: " + UID);
+                        return UID;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Re-Scan NFC!");
+                    }
                 }
             }
         }

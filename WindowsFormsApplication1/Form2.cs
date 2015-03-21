@@ -93,5 +93,20 @@ namespace GroupProject
         {
             Application.Restart();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Stuff happens
+            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
+            {
+                OleDbCommand command = new OleDbCommand("DELETE FROM Files WHERE File = \"" + comboBox1.SelectedText + "\";", connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            encyptedFiles.Remove(comboBox1.SelectedText);
+            MessageBox.Show(comboBox1.SelectedText + " Decrpted");
+            comboBox1.DataSource = encyptedFiles;
+        }
     }
 }
