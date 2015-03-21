@@ -31,24 +31,16 @@ namespace GroupProject
             {
                 OleDbCommand command = new OleDbCommand("SELECT File FROM Files WHERE Profile = \"" + profileName + "\";", connection);
                 connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                foreach (DataRow row in table.Rows)
                 {
-                    for (int i = 0; i <= reader.Depth; i++)
-                    {
-                        encyptedFiles.Add(reader.GetString(i));
-                        Debug.WriteLine(reader.GetString(i));
-                        reader.NextResult();
-                    }
-                    connection.Close();
+                    encyptedFiles.Add(row["File"].ToString());
                 }
-                else
-                {
-                    Debug.WriteLine("NOPE");
-                }
+                connection.Close();
+                comboBox1.DataSource = encyptedFiles;
             }
-            comboBox1.DataSource = encyptedFiles;
-            //.DataSource = encyptedFiles;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
