@@ -186,7 +186,6 @@ namespace GroupProject
                         Form2 newForm = new Form2();
                         newForm.profileName = reader.GetString(0);
                         connection.Close();
-                        newForm.label1.Text = "Hello There " + newForm.profileName + "!";
                         this.Hide();
                         newForm.Show();
                     }

@@ -20,6 +20,7 @@ namespace GroupProject
         public Form2()
         {
             InitializeComponent();
+            label1.Text = "Hello " + profileName;
             setFiles();
         }
 
@@ -33,7 +34,10 @@ namespace GroupProject
                 OleDbDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    
+                    for (int i = 0; i < reader.VisibleFieldCount; i++)
+                    {
+                        encyptedFiles.Add(reader.GetString(i));
+                    }
                 }
                 connection.Close();
             }

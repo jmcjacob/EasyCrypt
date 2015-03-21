@@ -57,6 +57,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(78, 20);
             this.textBox1.TabIndex = 2;
+            this.textBox1.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -80,6 +81,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 9;
+            this.textBox3.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -96,6 +98,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 11;
+            this.textBox4.UseSystemPasswordChar = true;
             // 
             // label2
             // 
