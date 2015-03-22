@@ -10,10 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Data.OleDb;
-
 namespace GroupProject
 {
-    public partial class Form3 : Form
+    public partial class Form4 : Form
     {
         int retCode;
         int hCard;
@@ -27,7 +26,7 @@ namespace GroupProject
         public Card.SCARD_READERSTATE RdrState;
         public Card.SCARD_IO_REQUEST pioSendRequest;
 
-        public Form3()
+        public Form4()
         {
             InitializeComponent();
         }
@@ -172,13 +171,18 @@ namespace GroupProject
                 OleDbDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    MessageBox.Show("Tag already assigned to a profile!");
+                    textBox1.Text = UID;
                 }
                 else
                 {
-                    textBox1.Text = UID;
+                    MessageBox.Show("Tag dose not exist!");
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -192,25 +196,37 @@ namespace GroupProject
                     OleDbDataReader reader1 = command1.ExecuteReader();
                     if (reader1.Read())
                     {
-                        MessageBox.Show("Profile Name already exists!");
-                            textBox2.Text = "";
-                    }
-                    else
-                    {
-                        if (textBox1.Text != "")
+                        OleDbCommand command2 = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + textBox2.Text + "\";", connection);
+                        OleDbDataReader reader2 = command2.ExecuteReader();
+                        reader2.Read();
+                        if (reader2.GetString(0) == textBox3.Text)
                         {
-                            OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
-                            command3.ExecuteNonQuery();
-                            MessageBox.Show(textBox2.Text + " Added!");
-                            textBox1.Text = "";
-                            textBox2.Text = "";
-                            textBox3.Text = "";
-                            textBox4.Text = "";
+                            OleDbCommand command3 = new OleDbCommand("SELECT UID FROM Login WHERE Profile = \"" + textBox2.Text + "\";", connection);
+                            OleDbDataReader reader3 = command3.ExecuteReader();
+                            reader3.Read();
+                            if (reader3.GetString(0) == textBox1.Text)
+                            {
+                                OleDbCommand command4 = new OleDbCommand("DELETE FROM Login Where Profile = \"" + textBox2.Text + "\";", connection);
+                                command4.ExecuteNonQuery();
+                                MessageBox.Show(textBox2.Text +" Deleted!");
+                                textBox1.Text = "";
+                                textBox2.Text = "";
+                                textBox3.Text = "";
+                                textBox4.Text = "";
+                            }
+                            else
+                            {
+                                MessageBox.Show("The NFC tag dose not match!");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("You need an NFC Tag!");
+                            MessageBox.Show("The Password dose not match the profile!");
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("The Profile dose not exist!");
                     }
                 }
             }
@@ -220,16 +236,6 @@ namespace GroupProject
             }
         }
 
-        string newKey()
-        {
-            string path = Path.GetRandomFileName();
-            path = path.Replace(".", "");
-            return path;
-        }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
     }
 }

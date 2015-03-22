@@ -142,8 +142,15 @@ namespace GroupProject
                 if (retCode == Card.SCARD_S_SUCCESS)
                 {
                     string UID = getcardUID();
-                    Debug.WriteLine("UID: " + UID);
-                    return UID;
+                    if (UID != "Error")
+                    {
+                        Debug.WriteLine("UID: " + UID);
+                        return UID;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Re-Scan NFC!");
+                    }
                 }
             }
         }
@@ -152,6 +159,8 @@ namespace GroupProject
         {
             if (textBox1.Text == "")
             {
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
                 SelectDevice();
                 establishContext();
                 using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
@@ -159,40 +168,73 @@ namespace GroupProject
                     OleDbCommand command = new OleDbCommand("SELECT Profile FROM Login WHERE UID = \"" + searchForTag() + "\";", connection);
                     connection.Open();
                     OleDbDataReader reader = command.ExecuteReader();
-                    reader.Read();
-
-                    Form2 newForm = new Form2();
-                    newForm.profileName = reader.GetString(0);
-                    connection.Close();
-                    newForm.label1.Text = "Hello There " + newForm.profileName + "!";
-
-                    this.Hide();
-                    newForm.Show();
+                    if (reader.Read())
+                    {
+                        Form2 newForm = new Form2();
+                        newForm.profileName = reader.GetString(0);
+                        connection.Close();
+                        newForm.label1.Text = "Hello There " + newForm.profileName + "!";
+                        newForm.setFiles();
+                        connection.Close();
+                        this.Hide();
+                        newForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry No NFC Tag was found!");
+                        textBox1.Enabled = true;
+                        textBox2.Enabled = true;
+                    }
                 }
             }
             else
             {
                 using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
                 {
-                    OleDbCommand command = new OleDbCommand("SELECT Profile FROM Login WHERE Password = \"" + textBox1.Text + "\";", connection);
+                    OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + textBox2.Text + "\";", connection);
                     connection.Open();
                     OleDbDataReader reader = command.ExecuteReader();
-                    reader.Read();
-
-                    Form2 newForm = new Form2();
-                    newForm.profileName = reader.GetString(0);
-                    connection.Close();
-                    newForm.label1.Text = "Hello There " + newForm.profileName + "!";
-
-                    this.Hide();
-                    newForm.Show();
+                    if (reader.Read())
+                    {
+                        if (reader.GetString(0) == textBox1.Text)
+                        {
+                            Form2 newForm = new Form2();
+                            newForm.profileName = textBox2.Text;
+                            newForm.label1.Text = "Hello There " + newForm.profileName + "!";
+                            newForm.setFiles();
+                            connection.Close();
+                            this.Hide();
+                            newForm.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sorry there was an error logging in!");
+                            textBox1.Text = "";
+                            textBox2.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry there was an error logging in!");
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                    }
                 }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Form3 thing = new Form3();
+            this.Hide();
+            thing.Show();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form4 thing = new Form4();
+            this.Hide();
+            thing.Show();
         }
     }
 }
