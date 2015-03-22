@@ -116,12 +116,30 @@ namespace GroupProject
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Decrpt
             using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
             {
-                OleDbCommand command = new OleDbCommand("DELETE FROM Files WHERE File = \"" + comboBox1.Text + "\";", connection);
                 connection.Open();
-                command.ExecuteNonQuery();
+                OleDbCommand command = new OleDbCommand("SELECT Key FROM Files WHERE File = \"" + comboBox1.SelectedItem.ToString() + "\";", connection);
+                OleDbDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    FileStream str = new FileStream(Path.GetDirectoryName(comboBox1.SelectedItem.ToString()) + "\\" + Path.GetFileNameWithoutExtension(comboBox1.SelectedItem.ToString()) + ".magic", FileMode.Open);
+                    Byte[] newfile = AES_Decrypt(ReadFully(str), Encoding.ASCII.GetBytes(reader.GetString(0)));
+                    FileStream newstr = new FileStream(Path.GetFullPath(comboBox1.SelectedItem.ToString()), FileMode.Create);
+                    foreach(byte b in newfile)
+                    {
+                        newstr.WriteByte(b);
+                    }
+                    str.Close();
+                    newstr.Close();
+                    File.Delete(Path.GetDirectoryName(comboBox1.SelectedItem.ToString()) + "\\" + Path.GetFileNameWithoutExtension(comboBox1.SelectedItem.ToString()) + ".magic");
+                    command = new OleDbCommand("DELETE FROM Files WHERE File = \"" + comboBox1.Text + "\";", connection);
+                    command.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
                 connection.Close();
             }
             comboBox1.Items.Remove(comboBox1.Text);
