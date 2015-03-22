@@ -79,14 +79,15 @@ namespace GroupProject
                     reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        FileStream str = new FileStream(textBox1.Text, FileMode.OpenOrCreate);
+                        FileStream str = new FileStream(Path.GetFullPath(textBox1.Text), FileMode.Open);
                         Byte[] newfile = AES_Encrypt(ReadFully(str), Encoding.ASCII.GetBytes(reader.GetString(0)));
                         FileStream newstr = new FileStream(Path.GetDirectoryName(textBox1.Text) + "\\" + Path.GetFileNameWithoutExtension(textBox1.Text) + ".magic", FileMode.Create);
                         foreach (byte b in newfile)
                         {
-                            str.WriteByte(b);
+                            newstr.WriteByte(b);
                         }
                         str.Close();
+                        newstr.Close();
                         File.Delete(textBox1.Text);
                         connection.Close();
                         textBox1.Text = "";
