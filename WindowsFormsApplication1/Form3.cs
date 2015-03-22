@@ -195,22 +195,33 @@ namespace GroupProject
                         MessageBox.Show("Profile Name already exists!");
                             textBox2.Text = "";
                     }
-                    else
+                    else if(2 < textBox2.Text.Length && textBox2.Text.Length < 15)
                     {
                         if (textBox1.Text != "")
                         {
-                            OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
-                            command3.ExecuteNonQuery();
-                            MessageBox.Show(textBox2.Text + " Added!");
-                            textBox1.Text = "";
-                            textBox2.Text = "";
-                            textBox3.Text = "";
-                            textBox4.Text = "";
+                            if (textBox3.Text.Length > 4 && textBox3.Text.Length < 15)
+                            {
+                                OleDbCommand command3 = new OleDbCommand("INSERT INTO Login VALUES (\"" + textBox2.Text + "\", \"" + textBox1.Text + "\", \"" + textBox3.Text + "\", \"" + newKey() + "\");", connection);
+                                command3.ExecuteNonQuery();
+                                MessageBox.Show(textBox2.Text + " Added!");
+                                textBox1.Text = "";
+                                textBox2.Text = "";
+                                textBox3.Text = "";
+                                textBox4.Text = "";
+                            }
+                            else
+                            {
+                                MessageBox.Show("Password needs to be between 5 and 15 charatures!");
+                            }
                         }
                         else
                         {
                             MessageBox.Show("You need an NFC Tag!");
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Profile Name needs to be between 3 and 15 charatures!");
                     }
                 }
             }
