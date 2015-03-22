@@ -16,7 +16,6 @@ namespace GroupProject
     public partial class Form2 : Form
     {
         public string profileName;
-        public List<string> encyptedFiles = new List<string>();
 
         public Form2()
         {
@@ -36,10 +35,9 @@ namespace GroupProject
                 adapter.Fill(table);
                 foreach (DataRow row in table.Rows)
                 {
-                    encyptedFiles.Add(row["File"].ToString());
+                    comboBox1.Items.Add(row["File"].ToString());
                 }
                 connection.Close();
-                comboBox1.DataSource = encyptedFiles;
             }
         }
 
@@ -76,8 +74,7 @@ namespace GroupProject
                     OleDbCommand command = new OleDbCommand("INSERT INTO Files VALUES (\"" + profileName + "\", \"" + textBox1.Text + "\", \"" + key() + "\");", connection);
                     command.ExecuteNonQuery();
                     MessageBox.Show(textBox1.Text + " Has been Added!");
-                    encyptedFiles.Add(textBox1.Text);
-                    comboBox1.DataSource = encyptedFiles;
+                    comboBox1.Items.Add(textBox1.Text);
                     connection.Close();
                     textBox1.Text = "";
                 }
@@ -99,14 +96,13 @@ namespace GroupProject
             // Stuff happens
             using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb;Persist Security Info=False;"))
             {
-                OleDbCommand command = new OleDbCommand("DELETE FROM Files WHERE File = \"" + comboBox1.SelectedText + "\";", connection);
+                OleDbCommand command = new OleDbCommand("DELETE FROM Files WHERE File = \"" + comboBox1.Text + "\";", connection);
                 connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();
             }
-            encyptedFiles.Remove(comboBox1.SelectedText);
-            MessageBox.Show(comboBox1.SelectedText + " Decrpted");
-            comboBox1.DataSource = encyptedFiles;
+            comboBox1.Items.Remove(comboBox1.Text);
+            MessageBox.Show(comboBox1.Text + " Decrpted");
         }
     }
 }
