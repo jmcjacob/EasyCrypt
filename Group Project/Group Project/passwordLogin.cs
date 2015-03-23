@@ -36,7 +36,7 @@ namespace Group_Project
                     {
                         if (reader.GetString(0) == textBox2.Text)
                         {
-                            // Open new Form 
+                            MessageBox.Show("Hello " + textBox1.Text);
                             connection.Close();
                         }
                         else

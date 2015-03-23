@@ -37,7 +37,7 @@ namespace Group_Project
                     OleDbDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        // Opens the new Form!!
+                        MessageBox.Show("Hello " + reader.GetString(0));
                         connection.Close();
                     }
                     else
@@ -69,6 +69,13 @@ namespace Group_Project
             RemoveProfile remove = new RemoveProfile();
             this.Hide();
             remove.Show();
+        }
+
+        private void AddProfile_Click(object sender, EventArgs e)
+        {
+            AddProfile add = new AddProfile();
+            this.Hide();
+            add.Show();
         }
     }
 }

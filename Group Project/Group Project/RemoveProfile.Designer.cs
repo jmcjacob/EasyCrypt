@@ -72,7 +72,7 @@
             // nfcScan
             // 
             this.nfcScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nfcScan.ForeColor = System.Drawing.Color.Black;
+            this.nfcScan.ForeColor = System.Drawing.Color.RoyalBlue;
             this.nfcScan.Location = new System.Drawing.Point(12, 12);
             this.nfcScan.Name = "nfcScan";
             this.nfcScan.Size = new System.Drawing.Size(75, 80);
@@ -88,6 +88,7 @@
             this.passwordCon.Name = "passwordCon";
             this.passwordCon.Size = new System.Drawing.Size(118, 21);
             this.passwordCon.TabIndex = 4;
+            this.passwordCon.UseSystemPasswordChar = true;
             // 
             // password
             // 
@@ -95,6 +96,7 @@
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(118, 20);
             this.password.TabIndex = 5;
+            this.password.UseSystemPasswordChar = true;
             // 
             // profileName
             // 

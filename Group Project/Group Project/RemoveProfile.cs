@@ -85,13 +85,14 @@ namespace Group_Project
                                 {
                                     if (UID == reader.GetString(0))
                                     {
-                                        var result = MessageBox.Show("Are you sure you want to Delete this profile?", "Delete Profile?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                        DialogResult result = MessageBox.Show("Are you sure you want to Delete this profile?", "Delete Profile?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                                         if (result == DialogResult.Yes)
                                         {
                                             command = new OleDbCommand("DELETE FROM Login WHERE Profile = \"" + profileName.Name + "\";", connect);
                                             command.ExecuteNonQuery();
                                             connect.Close();
-                                            nfcScan.ForeColor = Color.Black;
+                                            MessageBox.Show(profileName.Text + " Deleted!", "Deleted!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                            nfcScan.ForeColor = Color.RoyalBlue;
 
                                             UID = "";
                                             profileName.Text = "";

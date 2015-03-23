@@ -62,6 +62,7 @@
             this.AddProfile.TabIndex = 2;
             this.AddProfile.Text = "Add Profile";
             this.AddProfile.UseVisualStyleBackColor = true;
+            this.AddProfile.Click += new System.EventHandler(this.AddProfile_Click);
             // 
             // remove
             // 
