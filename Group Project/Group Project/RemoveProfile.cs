@@ -27,76 +27,101 @@ namespace Group_Project
 
         private void nfcScan_Click(object sender, EventArgs e)
         {
-            nfcScan.ForeColor = Color.RoyalBlue;
-            Card card = new Card();
-            card.SelectDevice();
-            card.establishContext();
-            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
+            try
             {
-                OleDbCommand command = new OleDbCommand("SELECT UID FROM Login WHERE UID = \"" + card.searchForTag() + "\";", connection);
-                connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+                nfcScan.ForeColor = Color.RoyalBlue;
+                Card card = new Card();
+                card.SelectDevice();
+                card.establishContext();
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                 {
-                    UID = reader.GetString(0);
-                    nfcScan.ForeColor = Color.Green;
-                    connection.Close();
+                    OleDbCommand command = new OleDbCommand("SELECT UID FROM Login WHERE UID = \"" + card.searchForTag() + "\";", connection);
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        UID = reader.GetString(0);
+                        nfcScan.ForeColor = Color.Green;
+                        connection.Close();
+                    }
+                    else
+                    {
+                        nfcScan.ForeColor = Color.Black;
+                        connection.Close();
+                        MessageBox.Show("Sorry no NFC Tag was found!", "Failed NFC Scan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
-                else
-                {
-                    nfcScan.ForeColor = Color.Black;
-                    connection.Close();
-                    MessageBox.Show("Sorry no NFC Tag was found!", "Failed NFC Scan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                nfcScan.ForeColor = Color.Black;
+                MessageBox.Show("Make sure your NFC reader to connected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                nfcScan.ForeColor = Color.Black;
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            if (password.Text == passwordCon.Text)
+            try
             {
-                using (OleDbConnection connect = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
+                if (password.Text == passwordCon.Text)
                 {
-                    OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + profileName.Text + "\";", connect);
-                    connect.Open();
-                    OleDbDataReader reader = command.ExecuteReader();
-                    if (reader.Read())
+                    using (OleDbConnection connect = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                     {
-                        if (password.Text == reader.GetString(0))
+                        OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + profileName.Text + "\";", connect);
+                        connect.Open();
+                        OleDbDataReader reader = command.ExecuteReader();
+                        if (reader.Read())
                         {
-                            command = new OleDbCommand("SELECT UID FROM Login WHERE Profile = \"" + profileName.Text + "\";", connect);
-                            reader = command.ExecuteReader();
-                            if (UID != "" && reader.Read())
+                            if (password.Text == reader.GetString(0))
                             {
-                                if(UID == reader.GetString(0))
+                                command = new OleDbCommand("SELECT UID FROM Login WHERE Profile = \"" + profileName.Text + "\";", connect);
+                                reader = command.ExecuteReader();
+                                if (UID != "" && reader.Read())
                                 {
-                                    var result = MessageBox.Show("Are you sure you want to Delete this profile?", "Delete Profile?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                                    if (result == DialogResult.Yes)
+                                    if (UID == reader.GetString(0))
                                     {
-                                        command = new OleDbCommand("DELETE FROM Login WHERE Profile = \"" + profileName.Name + "\";", connect);
-                                        command.ExecuteNonQuery();
-                                        connect.Close();
-                                        nfcScan.ForeColor = Color.Black;
+                                        var result = MessageBox.Show("Are you sure you want to Delete this profile?", "Delete Profile?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                        if (result == DialogResult.Yes)
+                                        {
+                                            command = new OleDbCommand("DELETE FROM Login WHERE Profile = \"" + profileName.Name + "\";", connect);
+                                            command.ExecuteNonQuery();
+                                            connect.Close();
+                                            nfcScan.ForeColor = Color.Black;
 
-                                        UID = "";
-                                        profileName.Text = "";
-                                        password.Text = "";
-                                        passwordCon.Text = "";
-                                    }
-                                    else if (result == DialogResult.No)
-                                    {
-                                        connect.Close();
-                                        nfcScan.ForeColor = Color.Black;
-                                        UID = "";
-                                        password.Text = "";
-                                        passwordCon.Text = "";
+                                            UID = "";
+                                            profileName.Text = "";
+                                            password.Text = "";
+                                            passwordCon.Text = "";
+                                        }
+                                        else if (result == DialogResult.No)
+                                        {
+                                            connect.Close();
+                                            nfcScan.ForeColor = Color.Black;
+                                            UID = "";
+                                            password.Text = "";
+                                            passwordCon.Text = "";
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error Logging into system!", "Error Finding Profie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            connect.Close();
+                                            nfcScan.ForeColor = Color.Black;
+                                            UID = "";
+                                            password.Text = "";
+                                            passwordCon.Text = "";
+                                        }
                                     }
                                     else
                                     {
                                         MessageBox.Show("Error Logging into system!", "Error Finding Profie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        connect.Close();
                                         nfcScan.ForeColor = Color.Black;
                                         UID = "";
+                                        connect.Close();
                                         password.Text = "";
                                         passwordCon.Text = "";
                                     }
@@ -131,22 +156,17 @@ namespace Group_Project
                             passwordCon.Text = "";
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Error Logging into system!", "Error Finding Profie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        nfcScan.ForeColor = Color.Black;
-                        UID = "";
-                        connect.Close();
-                        password.Text = "";
-                        passwordCon.Text = "";
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Passwords Do Not Match!", "Error Finding Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    password.Text = "";
+                    passwordCon.Text = "";
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Passwords Do Not Match!", "Error Finding Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                password.Text = "";
-                passwordCon.Text = "";
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

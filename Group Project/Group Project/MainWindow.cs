@@ -25,24 +25,35 @@ namespace Group_Project
 
         private void nfcScan_Click(object sender, EventArgs e)
         {
-            Card card = new Card();
-            card.SelectDevice();
-            card.establishContext();
-            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
+            try
             {
-                OleDbCommand command = new OleDbCommand("SELECT Profile FROM Login WHERE UID = \"" + card.searchForTag() + "\";", connection);
-                connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+                Card card = new Card();
+                card.SelectDevice();
+                card.establishContext();
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                 {
-                    // Open new Form!!
-                    connection.Close();
+                    OleDbCommand command = new OleDbCommand("SELECT Profile FROM Login WHERE UID = \"" + card.searchForTag() + "\";", connection);
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        // Opens the new Form!!
+                        connection.Close();
+                    }
+                    else
+                    {
+                        connection.Close();
+                        MessageBox.Show("Sorry no NFC Tag was found!", "Failed NFC Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
-                else
-                {
-                    connection.Close();
-                    MessageBox.Show("Sorry no NFC Tag was found!", "Failed NFC Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Make sure your NFC reader to connected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -25,17 +25,27 @@ namespace Group_Project
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
+            try
             {
-                OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + textBox1.Text + "\";", connection);
-                connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                 {
-                    if (reader.GetString(0) == textBox2.Text)
+                    OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + textBox1.Text + "\";", connection);
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
                     {
-                        // Open new Form 
-                        connection.Close();
+                        if (reader.GetString(0) == textBox2.Text)
+                        {
+                            // Open new Form 
+                            connection.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sorry there was an error logging in!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            connection.Close();
+                            textBox1.Text = "";
+                            textBox2.Text = "";
+                        }
                     }
                     else
                     {
@@ -45,13 +55,10 @@ namespace Group_Project
                         textBox2.Text = "";
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Sorry there was an error logging in!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    connection.Close();
-                    textBox1.Text = "";
-                    textBox2.Text = "";
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
