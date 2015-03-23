@@ -52,5 +52,12 @@ namespace Group_Project
             this.Hide();
             login.Show();
         }
+
+        private void remove_Click(object sender, EventArgs e)
+        {
+            RemoveProfile remove = new RemoveProfile();
+            this.Hide();
+            remove.Show();
+        }
     }
 }

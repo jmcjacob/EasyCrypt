@@ -54,5 +54,10 @@ namespace Group_Project
                 }
             }
         }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

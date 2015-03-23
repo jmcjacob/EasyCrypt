@@ -31,7 +31,7 @@
             this.nfcScan = new System.Windows.Forms.Button();
             this.Login = new System.Windows.Forms.Button();
             this.AddProfile = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.remove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nfcScan
@@ -63,21 +63,22 @@
             this.AddProfile.Text = "Add Profile";
             this.AddProfile.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // remove
             // 
-            this.button1.Location = new System.Drawing.Point(158, 306);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Remove Profile";
-            this.button1.UseVisualStyleBackColor = true;
+            this.remove.Location = new System.Drawing.Point(158, 306);
+            this.remove.Name = "remove";
+            this.remove.Size = new System.Drawing.Size(134, 23);
+            this.remove.TabIndex = 3;
+            this.remove.Text = "Remove Profile";
+            this.remove.UseVisualStyleBackColor = true;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 341);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.remove);
             this.Controls.Add(this.AddProfile);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.nfcScan);
@@ -94,6 +95,6 @@
         private System.Windows.Forms.Button nfcScan;
         private System.Windows.Forms.Button Login;
         private System.Windows.Forms.Button AddProfile;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button remove;
     }
 }
