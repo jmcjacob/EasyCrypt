@@ -170,6 +170,7 @@ namespace GroupProject
                     OleDbDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
+                        // This is where magic dose stuff
                         Form2 newForm = new Form2();
                         newForm.profileName = reader.GetString(0);
                         connection.Close();

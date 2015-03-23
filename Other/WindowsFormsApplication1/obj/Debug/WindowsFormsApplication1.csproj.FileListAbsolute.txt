@@ -55,3 +55,16 @@ E:\Documents\Projects\Group-Project\WindowsFormsApplication1\bin\Debug\Database.
 E:\Documents\Projects\Group-Project\WindowsFormsApplication1\obj\Debug\GroupProject.Form4.resources
 C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\bin\Debug\Database.accdb
 C:\Users\computing\Downloads\Group-Project\WindowsFormsApplication1\obj\Debug\GroupProject.Form4.resources
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\bin\Debug\Database.accdb
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\GroupProject.Form1.resources
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\GroupProject.Form2.resources
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\GroupProject.Form3.resources
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\GroupProject.Form4.resources
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\computing\Downloads\Group-Project\Other\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache

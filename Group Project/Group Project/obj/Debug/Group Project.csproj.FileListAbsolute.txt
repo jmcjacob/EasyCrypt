@@ -9,3 +9,6 @@ E:\Documents\Projects\Group Project\Group Project\obj\Debug\Group Project.exe
 E:\Documents\Projects\Group Project\Group Project\obj\Debug\Group Project.pdb
 E:\Documents\Projects\Group Project\Group Project\bin\Debug\Data.accdb
 E:\Documents\Projects\Group Project\Group Project\obj\Debug\Group_Project.passwordLogin.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\bin\Debug\Group Project.exe.config
+C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.exe
+C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.pdb
