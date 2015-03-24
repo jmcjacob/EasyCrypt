@@ -49,7 +49,6 @@ namespace Group_Project
                         {
                             MessageBox.Show("Sorry there was an error logging in!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             connection.Close();
-                            textBox1.Text = "";
                             textBox2.Text = "";
                         }
                     }
@@ -57,7 +56,6 @@ namespace Group_Project
                     {
                         MessageBox.Show("Sorry there was an error logging in!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         connection.Close();
-                        textBox1.Text = "";
                         textBox2.Text = "";
                     }
                 }

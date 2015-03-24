@@ -94,9 +94,9 @@ namespace Group_Project
                         {
                             if (UID != "")
                             {
-                                if (profileName.Text.Length > 2 && profileName.Text.Length < 15)
+                                if (profileName.Text.Length > 2 && profileName.Text.Length < 16)
                                 {
-                                    if (password.Text.Length > 2 && password.Text.Length < 15)
+                                    if (password.Text.Length > 2 && password.Text.Length < 16)
                                     {
                                         DialogResult result = MessageBox.Show("Are you sure you want to add " + profileName.Text + "?", "Add Name?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                                         if (result == DialogResult.Yes)
