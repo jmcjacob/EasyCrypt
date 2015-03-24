@@ -56,3 +56,4 @@ C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\
 C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.Properties.Resources.resources
 C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.RemoveProfile.resources
 C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.csproj.GenerateResource.Cache
+C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.csprojResolveAssemblyReference.cache
