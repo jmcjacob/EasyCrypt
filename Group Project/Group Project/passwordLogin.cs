@@ -36,7 +36,12 @@ namespace Group_Project
                     {
                         if (reader.GetString(0) == textBox2.Text)
                         {
-                            MessageBox.Show("Hello " + textBox1.Text);
+                            Encrpt en = new Encrpt();
+                            en.profileName = textBox1.Text;
+                            en.setFiles();
+                            this.Hide();
+                            en.Show();
+                            connection.Close();
                             connection.Close();
                         }
                         else

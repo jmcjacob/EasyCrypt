@@ -37,7 +37,11 @@ namespace Group_Project
                     OleDbDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        MessageBox.Show("Hello " + reader.GetString(0));
+                        Encrpt en = new Encrpt();
+                        en.profileName = reader.GetString(0);
+                        en.setFiles();
+                        this.Hide();
+                        en.Show();
                         connection.Close();
                     }
                     else

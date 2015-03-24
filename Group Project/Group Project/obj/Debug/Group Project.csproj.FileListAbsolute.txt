@@ -34,3 +34,4 @@ E:\Documents\Projects\Group-Project\Group Project\Group Project\obj\Debug\Group_
 E:\Documents\Projects\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.Properties.Resources.resources
 E:\Documents\Projects\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.RemoveProfile.resources
 E:\Documents\Projects\Group-Project\Group Project\Group Project\obj\Debug\Group Project.csproj.GenerateResource.Cache
+E:\Documents\Projects\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.Encrpt.resources
