@@ -72,7 +72,7 @@ namespace Group_Project
                 {
                     using (OleDbConnection connect = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                     {
-                        OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + profileName.Text + "\";", connect);
+                        OleDbCommand command = new OleDbCommand("SELECT userPassword FROM Login WHERE Profile = \"" + profileName.Text + "\";", connect);
                         connect.Open();
                         OleDbDataReader reader = command.ExecuteReader();
                         if (reader.Read())

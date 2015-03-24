@@ -40,3 +40,19 @@ C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\obj\Debug
 C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.exe
 C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.pdb
 C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\bin\Debug\Group Project.pdb
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\bin\Debug\Group Project.exe.config
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.exe
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.pdb
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\bin\Debug\Data.accdb
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\bin\Debug\Group Project.exe
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\bin\Debug\Group Project.pdb
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.AddProfile.resources
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.ChangeNFC.resources
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.ChangePassword.resources
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.Encrpt.resources
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.MainWindow.resources
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.passwordLogin.resources
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.Properties.Resources.resources
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.RemoveProfile.resources
+C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.csproj.GenerateResource.Cache

@@ -36,29 +36,11 @@ namespace Group_Project
                     {
                         if (currentPassword.Text == reader.GetString(0))
                         {
-                            try
-                            {
-                                string temp;
-                                temp = "ABC";
-                                command = new OleDbCommand("UPDATE Login SET UID = \"" + temp + "\" WHERE Profile = \"" + profileName + "\";", connection);
-                                command.ExecuteNonQuery();
-
-                                //  Debug.WriteLine("UPDATE Login SET Password = \"" + newPassword.Text + "\" WHERE Profile = \"" + profileName + "\";", connection);
-                                //string temp2 = newPassword.Text.ToString();
-                                string temp2 = "qqq";
-
-                                command = new OleDbCommand("UPDATE test SET Password_AA = \"" + temp2 + "\" WHERE Profile = \"" + profileName + "\";", connection);
-                                //command.CommandText = "UPDATE Login(Password) VALUES (@ln, @fn, @add, @cit) WHERE Profile='" + profileName + "' AND FirstName='" + firstName + "'";
+                                command = new OleDbCommand("UPDATE Login SET userPassword = \"" + newPassword.Text + "\" WHERE Profile = \"" + profileName + "\";", connection);
                                 command.ExecuteNonQuery();
                                 connection.Close();
                                 MessageBox.Show("Updated Password for " + profileName + "!", "Update", MessageBoxButtons.OK, MessageBoxIcon.None);
                                 this.Close();
-
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
 
                         }
                         else

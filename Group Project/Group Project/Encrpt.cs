@@ -16,7 +16,7 @@ namespace Group_Project
     public partial class Encrpt : Form
     {
         public string profileName;
-        string extension = ".fuckingfile";
+        string extension = ".flob";
 
         public Encrpt()
         {
