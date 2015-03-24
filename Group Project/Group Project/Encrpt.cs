@@ -21,7 +21,6 @@ namespace Group_Project
         public Encrpt()
         {
             InitializeComponent();
-
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -141,7 +140,7 @@ namespace Group_Project
         {
             try
             {
-                if (Path.GetExtension(encryptPath.Text) == extension)
+                if (Path.GetExtension(encryptPath.Text) != extension)
                 {
                     using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                     {
@@ -158,7 +157,7 @@ namespace Group_Project
                             string temp = key();
                             command = new OleDbCommand("INSERT INTO Files VALUES (\"" + profileName + "\", \"" + encryptPath.Text + "\", \"" + temp + "\");", connection);
                             command.ExecuteNonQuery();
-                            MessageBox.Show(encryptPath.Text + " Has Been Added!", "Added File!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            MessageBox.Show(encryptPath.Text + " Has Been Encrypted!", "Encrypted File!", MessageBoxButtons.OK, MessageBoxIcon.None);
                             decryptPath.Items.Add(encryptPath.Text);
                             connection.Close();
 
@@ -209,8 +208,10 @@ namespace Group_Project
                         }
                         newstr.Close();
                         File.Delete(Path.GetDirectoryName(decryptPath.SelectedItem.ToString()) + "\\" + Path.GetFileNameWithoutExtension(decryptPath.SelectedItem.ToString()) + extension);
+                        MessageBox.Show(encryptPath.Text + " Has Been Decrypted!", "Decrypted File!", MessageBoxButtons.OK, MessageBoxIcon.None);
                         command = new OleDbCommand("DELETE FROM Files WHERE File = \"" + decryptPath.SelectedItem.ToString() + "\";", connection);
                         command.ExecuteNonQuery();
+                        decryptPath.Items.Remove(decryptPath.SelectedItem.ToString());
                         connection.Close();
                     }
                     else
@@ -224,6 +225,25 @@ namespace Group_Project
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void changeNFC_Click(object sender, EventArgs e)
+        {
+            ChangeNFC nfc = new ChangeNFC();
+            nfc.profileName = profileName;
+            nfc.Show();
+        }
+
+        private void changePassword_Click(object sender, EventArgs e)
+        {
+            ChangePassword pass = new ChangePassword();
+            pass.profileName = profileName;
+            pass.Show();
         }
     }
 }

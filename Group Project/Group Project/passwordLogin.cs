@@ -39,6 +39,7 @@ namespace Group_Project
                             Encrpt en = new Encrpt();
                             en.profileName = textBox1.Text;
                             en.setFiles();
+                            en.label1.Text = "Hello " + en.profileName;
                             this.Hide();
                             en.Show();
                             connection.Close();

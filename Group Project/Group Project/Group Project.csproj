@@ -51,6 +51,18 @@
       <DependentUpon>AddProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Card.cs" />
+    <Compile Include="ChangeNFC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeNFC.Designer.cs">
+      <DependentUpon>ChangeNFC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Encrpt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +91,12 @@
     </Compile>
     <EmbeddedResource Include="AddProfile.resx">
       <DependentUpon>AddProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeNFC.resx">
+      <DependentUpon>ChangeNFC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Encrpt.resx">
       <DependentUpon>Encrpt.cs</DependentUpon>
@@ -122,6 +140,7 @@
     <Content Include="Data.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\NFC small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
