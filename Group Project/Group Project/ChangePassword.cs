@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Diagnostics;
 
 namespace Group_Project
 {
@@ -24,31 +25,41 @@ namespace Group_Project
         {
             //try
             //{
-                if (newPassword.Text == confimPassword.Text)
+            if (newPassword.Text == confimPassword.Text)
+            {
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                 {
-                    using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
+                    OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + profileName + "\";", connection);
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
                     {
-                        OleDbCommand command = new OleDbCommand("SELECT Password FROM Login WHERE Profile = \"" + profileName + "\";", connection);
-                        connection.Open();
-                        OleDbDataReader reader = command.ExecuteReader();
-                        if (reader.Read())
+                        if (currentPassword.Text == reader.GetString(0))
                         {
-                            if (currentPassword.Text == reader.GetString(0))
+                            try
                             {
-                                command = new OleDbCommand("UPDATE Login SET Password = \"" + newPassword.Text + "\" WHERE Profile = \"" + profileName + "\";", connection);
+                                string temp;
+                                temp = "ABC";
+                                command = new OleDbCommand("UPDATE Login SET UID = \"" + temp + "\" WHERE Profile = \"" + profileName + "\";", connection);
+                                command.ExecuteNonQuery();
+
+                                //  Debug.WriteLine("UPDATE Login SET Password = \"" + newPassword.Text + "\" WHERE Profile = \"" + profileName + "\";", connection);
+                                //string temp2 = newPassword.Text.ToString();
+                                string temp2 = "qqq";
+
+                                command = new OleDbCommand("UPDATE test SET Password_AA = \"" + temp2 + "\" WHERE Profile = \"" + profileName + "\";", connection);
+                                //command.CommandText = "UPDATE Login(Password) VALUES (@ln, @fn, @add, @cit) WHERE Profile='" + profileName + "' AND FirstName='" + firstName + "'";
                                 command.ExecuteNonQuery();
                                 connection.Close();
                                 MessageBox.Show("Updated Password for " + profileName + "!", "Update", MessageBoxButtons.OK, MessageBoxIcon.None);
                                 this.Close();
+
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("Error Updating Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                newPassword.Text = "";
-                                currentPassword.Text = "";
-                                confimPassword.Text = "";
-                                connection.Close();
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
+
                         }
                         else
                         {
@@ -59,18 +70,26 @@ namespace Group_Project
                             connection.Close();
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Error Updating Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        newPassword.Text = "";
+                        currentPassword.Text = "";
+                        confimPassword.Text = "";
+                        connection.Close();
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Passwords Do Not Match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    newPassword.Text = "";
-                    confimPassword.Text = "";
-                }
-            //}
-            //catch (Exception ex)
-           // {
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Passwords Do Not Match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                newPassword.Text = "";
+                confimPassword.Text = "";
+            }
         }
+        //catch (Exception ex)
+        //{
+        //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //}
     }
 }

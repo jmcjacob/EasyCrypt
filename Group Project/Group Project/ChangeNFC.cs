@@ -40,7 +40,7 @@ namespace Group_Project
                     }
                     else
                     {
-                        command = new OleDbCommand("UPDATE Login SET UID =\"" + temp + "\" WHERE Profile = \"" + profileName + "\";", connection);
+                        command = new OleDbCommand("UPDATE Login SET UID = \"" + temp + "\" WHERE Profile = \"" + profileName + "\";", connection);
                         command.ExecuteNonQuery();
                         MessageBox.Show("Updated NFC Tag for " + profileName + "!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
                         connection.Close();
