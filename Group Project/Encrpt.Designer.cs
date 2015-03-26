@@ -144,7 +144,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Encrpt";
-            this.Text = "TITLE";
+            this.Text = "EasyCrypt";
             this.ResumeLayout(false);
             this.PerformLayout();
 

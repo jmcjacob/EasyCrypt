@@ -141,7 +141,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddProfile";
-            this.Text = "TITLE - Add Profile";
+            this.Text = "EasyCrypt - Add Profile";
             this.ResumeLayout(false);
             this.PerformLayout();
 

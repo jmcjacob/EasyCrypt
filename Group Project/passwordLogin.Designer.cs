@@ -107,7 +107,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "passwordLogin";
-            this.Text = "TITLE";
+            this.Text = "EasyCrypt";
             this.ResumeLayout(false);
             this.PerformLayout();
 

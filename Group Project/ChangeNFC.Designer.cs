@@ -49,7 +49,7 @@
             this.Controls.Add(this.nfcScan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ChangeNFC";
-            this.Text = "TITLE - Update NFC";
+            this.Text = "EasyCrypt - Update NFC";
             this.ResumeLayout(false);
 
         }

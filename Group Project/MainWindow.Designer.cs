@@ -86,7 +86,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.Text = "TITLE";
+            this.Text = "EasyCrypt";
             this.ResumeLayout(false);
 
         }

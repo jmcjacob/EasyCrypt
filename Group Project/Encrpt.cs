@@ -16,7 +16,7 @@ namespace Group_Project
     public partial class Encrpt : Form
     {
         public string profileName;
-        string extension = ".magic";
+        string extension = ".rekt";
 
         public Encrpt()
         {

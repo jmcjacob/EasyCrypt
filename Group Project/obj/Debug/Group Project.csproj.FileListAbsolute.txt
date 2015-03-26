@@ -57,3 +57,19 @@ C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\
 C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group_Project.RemoveProfile.resources
 C:\Users\Mitchell\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.csproj.GenerateResource.Cache
 C:\Users\computing\Downloads\Group-Project\Group Project\Group Project\obj\Debug\Group Project.csprojResolveAssemblyReference.cache
+C:\Users\computing\Downloads\Group-Project\Group Project\bin\Debug\Group Project.exe.config
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group Project.exe
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group Project.pdb
+C:\Users\computing\Downloads\Group-Project\Group Project\bin\Debug\Data.accdb
+C:\Users\computing\Downloads\Group-Project\Group Project\bin\Debug\Group Project.exe
+C:\Users\computing\Downloads\Group-Project\Group Project\bin\Debug\Group Project.pdb
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group Project.csprojResolveAssemblyReference.cache
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.AddProfile.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.ChangeNFC.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.ChangePassword.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.Encrpt.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.MainWindow.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.passwordLogin.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.Properties.Resources.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.RemoveProfile.resources
+C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group Project.csproj.GenerateResource.Cache

@@ -141,7 +141,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RemoveProfile";
-            this.Text = "TITLE - Remove Profile";
+            this.Text = "EasyCrypt - Remove Profile";
             this.ResumeLayout(false);
             this.PerformLayout();
 

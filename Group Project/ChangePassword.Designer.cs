@@ -119,7 +119,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ChangePassword";
-            this.Text = "TITLE - Update Password";
+            this.Text = "EasyCrypt - Update Password";
             this.ResumeLayout(false);
             this.PerformLayout();
 
