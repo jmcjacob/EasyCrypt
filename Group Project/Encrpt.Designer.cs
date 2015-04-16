@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Encrpt));
             this.decryptPath = new System.Windows.Forms.ComboBox();
             this.encryptPath = new System.Windows.Forms.TextBox();
             this.decryptFile = new System.Windows.Forms.Button();
@@ -42,26 +43,27 @@
             // decryptPath
             // 
             this.decryptPath.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.decryptPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decryptPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decryptPath.FormattingEnabled = true;
-            this.decryptPath.Location = new System.Drawing.Point(15, 70);
+            this.decryptPath.Location = new System.Drawing.Point(12, 79);
             this.decryptPath.Name = "decryptPath";
-            this.decryptPath.Size = new System.Drawing.Size(392, 23);
+            this.decryptPath.Size = new System.Drawing.Size(479, 28);
             this.decryptPath.TabIndex = 0;
             // 
             // encryptPath
             // 
-            this.encryptPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.encryptPath.Location = new System.Drawing.Point(15, 41);
+            this.encryptPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encryptPath.Location = new System.Drawing.Point(12, 47);
             this.encryptPath.Name = "encryptPath";
-            this.encryptPath.Size = new System.Drawing.Size(361, 21);
+            this.encryptPath.Size = new System.Drawing.Size(439, 26);
             this.encryptPath.TabIndex = 1;
             // 
             // decryptFile
             // 
-            this.decryptFile.Location = new System.Drawing.Point(413, 70);
+            this.decryptFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decryptFile.Location = new System.Drawing.Point(497, 79);
             this.decryptFile.Name = "decryptFile";
-            this.decryptFile.Size = new System.Drawing.Size(75, 23);
+            this.decryptFile.Size = new System.Drawing.Size(115, 27);
             this.decryptFile.TabIndex = 2;
             this.decryptFile.Text = "Decrypt File";
             this.decryptFile.UseVisualStyleBackColor = true;
@@ -69,9 +71,10 @@
             // 
             // encryptFile
             // 
-            this.encryptFile.Location = new System.Drawing.Point(413, 41);
+            this.encryptFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encryptFile.Location = new System.Drawing.Point(497, 47);
             this.encryptFile.Name = "encryptFile";
-            this.encryptFile.Size = new System.Drawing.Size(75, 23);
+            this.encryptFile.Size = new System.Drawing.Size(115, 26);
             this.encryptFile.TabIndex = 3;
             this.encryptFile.Text = "Encrypt File";
             this.encryptFile.UseVisualStyleBackColor = true;
@@ -79,9 +82,10 @@
             // 
             // findPath
             // 
-            this.findPath.Location = new System.Drawing.Point(382, 41);
+            this.findPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.findPath.Location = new System.Drawing.Point(457, 47);
             this.findPath.Name = "findPath";
-            this.findPath.Size = new System.Drawing.Size(25, 23);
+            this.findPath.Size = new System.Drawing.Size(34, 26);
             this.findPath.TabIndex = 4;
             this.findPath.Text = "...";
             this.findPath.UseVisualStyleBackColor = true;
@@ -90,18 +94,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
+            this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Hello ";
             // 
             // LogOut
             // 
-            this.LogOut.Location = new System.Drawing.Point(413, 12);
+            this.LogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOut.Location = new System.Drawing.Point(522, 12);
             this.LogOut.Name = "LogOut";
-            this.LogOut.Size = new System.Drawing.Size(75, 23);
+            this.LogOut.Size = new System.Drawing.Size(90, 29);
             this.LogOut.TabIndex = 6;
             this.LogOut.Text = "Sign Out";
             this.LogOut.UseVisualStyleBackColor = true;
@@ -109,9 +114,10 @@
             // 
             // changeNFC
             // 
-            this.changeNFC.Location = new System.Drawing.Point(301, 12);
+            this.changeNFC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeNFC.Location = new System.Drawing.Point(182, 12);
             this.changeNFC.Name = "changeNFC";
-            this.changeNFC.Size = new System.Drawing.Size(106, 23);
+            this.changeNFC.Size = new System.Drawing.Size(164, 29);
             this.changeNFC.TabIndex = 7;
             this.changeNFC.Text = "Change NFC Tag";
             this.changeNFC.UseVisualStyleBackColor = true;
@@ -119,9 +125,10 @@
             // 
             // changePassword
             // 
-            this.changePassword.Location = new System.Drawing.Point(189, 12);
+            this.changePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changePassword.Location = new System.Drawing.Point(352, 12);
             this.changePassword.Name = "changePassword";
-            this.changePassword.Size = new System.Drawing.Size(106, 23);
+            this.changePassword.Size = new System.Drawing.Size(164, 29);
             this.changePassword.TabIndex = 8;
             this.changePassword.Text = "Change Password";
             this.changePassword.UseVisualStyleBackColor = true;
@@ -131,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 103);
+            this.ClientSize = new System.Drawing.Size(620, 118);
             this.Controls.Add(this.changePassword);
             this.Controls.Add(this.changeNFC);
             this.Controls.Add(this.LogOut);
@@ -142,6 +149,7 @@
             this.Controls.Add(this.encryptPath);
             this.Controls.Add(this.decryptPath);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Encrpt";
             this.Text = "EasyCrypt";

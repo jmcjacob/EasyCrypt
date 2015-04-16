@@ -15,6 +15,7 @@ namespace Group_Project
 {
     public partial class Encrpt : Form
     {
+        // Variables to be used in the application.
         public string profileName;
         string extension = ".easycrypt";
 
@@ -23,22 +24,27 @@ namespace Group_Project
             InitializeComponent();
         }
 
+        // Exits the application on window close.
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
+        // Finds all the encrypted files for the profile and adds them to a drop down list.
         public void setFiles()
         {
             try
             {
+                // Connects to the database.
                 using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                 {
+                    // Finds all files associated with the Profile.
                     OleDbCommand command = new OleDbCommand("SELECT File FROM Files WHERE Profile = \"" + profileName + "\";", connection);
                     connection.Open();
                     OleDbDataAdapter adapter = new OleDbDataAdapter(command);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
+                    // Goes through each file and adds it to the drop down list.
                     foreach (DataRow row in table.Rows)
                     {
                         decryptPath.Items.Add(row["File"].ToString());
@@ -46,12 +52,14 @@ namespace Group_Project
                     connection.Close();
                 }
             }
+            // Catches any exceptions that method may throw.
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // Method for generating a random string used as keys for encrypted files.
         private string key()
         {
             string path = Path.GetRandomFileName();
@@ -59,6 +67,7 @@ namespace Group_Project
             return path;
         }
 
+        // Opens a window to locate files and add them to the field.
         private void findPath_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -68,11 +77,10 @@ namespace Group_Project
             }
         }
 
+        // Method that will encrypt arrays of bytes based off another array of passwords bytes.
         public byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
         {
             byte[] encryptedBytes = null;
-            // Set your salt here, change it to meet your flavor:
-            // The salt bytes must be at least 8 bytes.
             byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             using (MemoryStream ms = new MemoryStream())
             {
@@ -95,11 +103,10 @@ namespace Group_Project
             return encryptedBytes;
         }
 
+        // Method that will decrypt arrays of bytes based off another array of passwords bytes.
         public byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
         {
             byte[] decryptedBytes = null;
-            // Set your salt here, change it to meet your flavor:
-            // The salt bytes must be at least 8 bytes.
             byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             using (MemoryStream ms = new MemoryStream())
             {
@@ -122,24 +129,29 @@ namespace Group_Project
             return decryptedBytes;
         }
 
+        // Method that reads File stream and returns an array of bytes.
         public static byte[] ReadFully(Stream input)
         {
             byte[] buffer = new byte[16 * 1024];
             using (MemoryStream ms = new MemoryStream())
             {
+                // Creates a Memory Stream and writes the file to it.
                 int read;
                 while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
                 {
                     ms.Write(buffer, 0, read);
                 }
+                // Converts the Memory stream into a byte array.
                 return ms.ToArray();
             }
         }
 
+        // Method to encrypt Files.
         private void encryptFile_Click(object sender, EventArgs e)
         {
             try
             {
+                //
                 if (Path.GetExtension(encryptPath.Text) != extension)
                 {
                     using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
@@ -227,11 +239,13 @@ namespace Group_Project
             }
         }
 
+        // Goes back to the previous window.
         private void LogOut_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
 
+        // Opens the Change NFC window.
         private void changeNFC_Click(object sender, EventArgs e)
         {
             ChangeNFC nfc = new ChangeNFC();
@@ -239,6 +253,7 @@ namespace Group_Project
             nfc.Show();
         }
 
+        // Opens the Change Password window.
         private void changePassword_Click(object sender, EventArgs e)
         {
             ChangePassword pass = new ChangePassword();

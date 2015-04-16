@@ -13,6 +13,7 @@ namespace Group_Project
 {
     public partial class RemoveProfile : Form
     {
+        // String to hold UID value obtained from NFC scanner.
         string UID = "";
 
         public RemoveProfile()
@@ -20,38 +21,48 @@ namespace Group_Project
             InitializeComponent();
         }
 
+        // Override method that exists the application on closing.
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
+        // Method to scan the NFC tag and store UID.
         private void nfcScan_Click(object sender, EventArgs e)
         {
             try
             {
                 nfcScan.ForeColor = Color.RoyalBlue;
+
+                // Sets up the Card Reader.
                 Card card = new Card();
                 card.SelectDevice();
                 card.establishContext();
+
+                // Connects to the local database.
                 using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                 {
+                    // Opens the connection and executes SQL command to a data reader.
                     OleDbCommand command = new OleDbCommand("SELECT UID FROM Login WHERE UID = \"" + card.searchForTag() + "\";", connection);
                     connection.Open();
                     OleDbDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
+                        // Sets UID and closes connection.
                         UID = reader.GetString(0);
                         nfcScan.ForeColor = Color.Green;
                         connection.Close();
                     }
                     else
                     {
-                        nfcScan.ForeColor = Color.Black;
+                        // Displays error message is NFC Tag dose not exists in the current database.
+                        nfcScan.ForeColor = Color.RoyalBlue;
                         connection.Close();
                         MessageBox.Show("Sorry no NFC Tag was found!", "Failed NFC Scan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
+            // Catches any exception thrown
             catch (ArgumentOutOfRangeException)
             {
                 nfcScan.ForeColor = Color.Black;
@@ -64,30 +75,38 @@ namespace Group_Project
             }
         }
 
+        // Method to check all inputted values against each other and the database then to delete the entry in the database.
         private void removeButton_Click(object sender, EventArgs e)
         {
             try
             {
+                // Check if the two passwords are the same. 
                 if (password.Text == passwordCon.Text)
                 {
+                    // Connects to the database.
                     using (OleDbConnection connect = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                     {
+                        // Runs the command on the database to a data reader.
                         OleDbCommand command = new OleDbCommand("SELECT userPassword FROM Login WHERE Profile = \"" + profileName.Text + "\";", connect);
                         connect.Open();
                         OleDbDataReader reader = command.ExecuteReader();
                         if (reader.Read())
                         {
+                            // Checks if the read data is the same as the entered data.
                             if (password.Text == reader.GetString(0))
                             {
+                                // Selects the UID where the profile name is the same as the entered one.
                                 command = new OleDbCommand("SELECT UID FROM Login WHERE Profile = \"" + profileName.Text + "\";", connect);
                                 reader = command.ExecuteReader();
                                 if (UID != "" && reader.Read())
                                 {
+                                    // Checks if the entered UID is equal to the Profile UID.
                                     if (UID == reader.GetString(0))
                                     {
                                         DialogResult result = MessageBox.Show("Are you sure you want to Delete this profile?", "Delete Profile?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                                         if (result == DialogResult.Yes)
                                         {
+                                            // Deletes the row from the database.
                                             command = new OleDbCommand("DELETE FROM Login WHERE Profile = \"" + profileName.Name + "\";", connect);
                                             command.ExecuteNonQuery();
                                             connect.Close();
@@ -99,6 +118,7 @@ namespace Group_Project
                                             password.Text = "";
                                             passwordCon.Text = "";
                                         }
+                                        // Elses that close connection and reset the fields in the window.
                                         else if (result == DialogResult.No)
                                         {
                                             connect.Close();
@@ -109,7 +129,7 @@ namespace Group_Project
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Error Logging into system!", "Error Finding Profie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            MessageBox.Show("Error Logging into system!", "Error Finding Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             connect.Close();
                                             nfcScan.ForeColor = Color.Black;
                                             UID = "";
@@ -119,7 +139,7 @@ namespace Group_Project
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Error Logging into system!", "Error Finding Profie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        MessageBox.Show("Error Logging into system!", "Error Finding Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                         nfcScan.ForeColor = Color.Black;
                                         UID = "";
                                         connect.Close();
@@ -129,7 +149,7 @@ namespace Group_Project
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Error Logging into system!", "Error Finding Profie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    MessageBox.Show("Error Logging into system!", "Error Finding Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     nfcScan.ForeColor = Color.Black;
                                     UID = "";
                                     connect.Close();
@@ -139,7 +159,7 @@ namespace Group_Project
                             }
                             else
                             {
-                                MessageBox.Show("Error Logging into system!", "Error Finding Profie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("Error Logging into system!", "Error Finding Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 nfcScan.ForeColor = Color.Black;
                                 UID = "";
                                 connect.Close();
@@ -149,7 +169,7 @@ namespace Group_Project
                         }
                         else
                         {
-                            MessageBox.Show("Error Logging into system!", "Error Finding Profie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Error Logging into system!", "Error Finding Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             nfcScan.ForeColor = Color.Black;
                             UID = "";
                             connect.Close();
@@ -171,6 +191,7 @@ namespace Group_Project
             }
         }
 
+        // Returns to the main screen of the application.
         private void Back_Click(object sender, EventArgs e)
         {
             Application.Restart();

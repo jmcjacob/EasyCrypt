@@ -41,9 +41,10 @@
             // 
             // Back
             // 
-            this.Back.Location = new System.Drawing.Point(15, 102);
+            this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Back.Location = new System.Drawing.Point(14, 108);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(74, 23);
+            this.Back.Size = new System.Drawing.Size(75, 26);
             this.Back.TabIndex = 17;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(95, 102);
+            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addButton.Location = new System.Drawing.Point(95, 108);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(235, 23);
+            this.addButton.Size = new System.Drawing.Size(270, 26);
             this.addButton.TabIndex = 16;
             this.addButton.Text = "Click Here To Add Profile";
             this.addButton.UseVisualStyleBackColor = true;
@@ -61,25 +63,27 @@
             // 
             // profileName
             // 
-            this.profileName.Location = new System.Drawing.Point(212, 14);
+            this.profileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileName.Location = new System.Drawing.Point(247, 12);
             this.profileName.Name = "profileName";
-            this.profileName.Size = new System.Drawing.Size(118, 20);
+            this.profileName.Size = new System.Drawing.Size(118, 26);
             this.profileName.TabIndex = 15;
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(212, 44);
+            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(247, 44);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(118, 20);
+            this.password.Size = new System.Drawing.Size(118, 26);
             this.password.TabIndex = 14;
             this.password.UseSystemPasswordChar = true;
             // 
             // passwordCon
             // 
-            this.passwordCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordCon.Location = new System.Drawing.Point(212, 71);
+            this.passwordCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordCon.Location = new System.Drawing.Point(247, 76);
             this.passwordCon.Name = "passwordCon";
-            this.passwordCon.Size = new System.Drawing.Size(118, 21);
+            this.passwordCon.Size = new System.Drawing.Size(118, 26);
             this.passwordCon.TabIndex = 13;
             this.passwordCon.UseSystemPasswordChar = true;
             // 
@@ -89,7 +93,7 @@
             this.nfcScan.ForeColor = System.Drawing.Color.RoyalBlue;
             this.nfcScan.Location = new System.Drawing.Point(14, 12);
             this.nfcScan.Name = "nfcScan";
-            this.nfcScan.Size = new System.Drawing.Size(75, 80);
+            this.nfcScan.Size = new System.Drawing.Size(75, 90);
             this.nfcScan.TabIndex = 12;
             this.nfcScan.Text = "SCAN NFC";
             this.nfcScan.UseVisualStyleBackColor = true;
@@ -98,30 +102,30 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(92, 74);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(95, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.Size = new System.Drawing.Size(136, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "Confim Password:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(92, 45);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(95, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "Password:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(92, 15);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(95, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 16);
+            this.label1.Size = new System.Drawing.Size(103, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Profile Name:";
             // 
@@ -129,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 137);
+            this.ClientSize = new System.Drawing.Size(374, 143);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.profileName);

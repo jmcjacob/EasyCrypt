@@ -14,6 +14,7 @@ namespace Group_Project
 {
     public partial class ChangePassword : Form
     {
+        // Variable holding Profile Name.
         public string profileName = "";
 
         public ChangePassword()
@@ -21,23 +22,30 @@ namespace Group_Project
             InitializeComponent();
         }
 
+        // Method for button click confirming change password.
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                // Checks if passwords are the same.
                 if (newPassword.Text == confimPassword.Text)
                 {
+                    // Checks boundaries of the password.
                     if (newPassword.Text.Length > 2 && newPassword.Text.Length < 16)
                     {
+                        // Connects to the database.
                         using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                         {
+                            // Selects the password from the database.
                             OleDbCommand command = new OleDbCommand("SELECT userPassword FROM Login WHERE Profile = \"" + profileName + "\";", connection);
                             connection.Open();
                             OleDbDataReader reader = command.ExecuteReader();
                             if (reader.Read())
                             {
+                                // Sees if the password is equal to the entered password.
                                 if (currentPassword.Text == reader.GetString(0))
                                 {
+                                    // Sets the new password to the database.
                                     command = new OleDbCommand("UPDATE Login SET userPassword = \"" + newPassword.Text + "\" WHERE Profile = \"" + profileName + "\";", connection);
                                     command.ExecuteNonQuery();
                                     connection.Close();
@@ -45,6 +53,7 @@ namespace Group_Project
                                     this.Close();
 
                                 }
+                                // Elses in case of wrong data.
                                 else
                                 {
                                     MessageBox.Show("Error Updating Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -79,6 +88,7 @@ namespace Group_Project
                     confimPassword.Text = "";
                 }
             }
+            // Catches any exceptions from the application.
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

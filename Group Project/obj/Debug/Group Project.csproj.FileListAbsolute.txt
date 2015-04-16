@@ -73,3 +73,19 @@ C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project
 C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.Properties.Resources.resources
 C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group_Project.RemoveProfile.resources
 C:\Users\computing\Downloads\Group-Project\Group Project\obj\Debug\Group Project.csproj.GenerateResource.Cache
+E:\Documents\Projects\Group-Project\Group Project\bin\Debug\Group Project.exe.config
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group Project.exe
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group Project.pdb
+E:\Documents\Projects\Group-Project\Group Project\bin\Debug\Data.accdb
+E:\Documents\Projects\Group-Project\Group Project\bin\Debug\Group Project.exe
+E:\Documents\Projects\Group-Project\Group Project\bin\Debug\Group Project.pdb
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group Project.csprojResolveAssemblyReference.cache
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group_Project.AddProfile.resources
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group_Project.ChangeNFC.resources
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group_Project.ChangePassword.resources
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group_Project.Encrpt.resources
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group_Project.MainWindow.resources
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group_Project.passwordLogin.resources
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group_Project.Properties.Resources.resources
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group_Project.RemoveProfile.resources
+E:\Documents\Projects\Group-Project\Group Project\obj\Debug\Group Project.csproj.GenerateResource.Cache

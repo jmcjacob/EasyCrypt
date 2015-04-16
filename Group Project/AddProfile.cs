@@ -13,6 +13,7 @@ namespace Group_Project
 {
     public partial class AddProfile : Form
     {
+        // Variable holding NFC UID.
         string UID = "";
 
         public AddProfile()
@@ -20,11 +21,13 @@ namespace Group_Project
             InitializeComponent();
         }
 
+        // Method for closing application on form close.
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
+        // Method for pressing NFC Scan button.
         private void nfcScan_Click(object sender, EventArgs e)
         {
             try
@@ -64,24 +67,30 @@ namespace Group_Project
             }
         }
 
+        // Method for returning to the previous window.
         private void Back_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
 
+        // Method for when add button is pressed.
         private void addButton_Click(object sender, EventArgs e)
         {
             try
             {
+                // Checks if passwords are equal to each other.
                 if (password.Text == passwordCon.Text)
                 {
+                    // connects to the database.
                     using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;Jet OLEDB:Database Password=01827711125;"))
                     {
+                        // Tries to find if the profile name already exists.
                         OleDbCommand command = new OleDbCommand("SELECT Profile FROM Login WHERE Profile = \"" + profileName.Text + "\";", connection);
                         connection.Open();
                         OleDbDataReader reader = command.ExecuteReader();
                         if (reader.Read())
                         {
+                            // For if the profile name dose not exists.
                             MessageBox.Show("Error Adding Profile!", "Error Adding Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             connection.Close();
                             nfcScan.ForeColor = Color.RoyalBlue;
@@ -92,15 +101,19 @@ namespace Group_Project
                         }
                         else
                         {
+                            // Checks the UID field.
                             if (UID != "")
                             {
+                                // Checks if the profile name and passwords and the correct length.
                                 if (profileName.Text.Length > 2 && profileName.Text.Length < 16)
                                 {
                                     if (password.Text.Length > 2 && password.Text.Length < 16)
                                     {
+                                        // Dialog box asking if you want to add the profile.
                                         DialogResult result = MessageBox.Show("Are you sure you want to add " + profileName.Text + "?", "Add Name?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                                         if (result == DialogResult.Yes)
                                         {
+                                            // In
                                             command = new OleDbCommand("INSERT INTO Login VALUES (\"" + profileName.Text + "\", \"" + UID + "\", \"" + password.Text + "\");", connection);
                                             command.ExecuteNonQuery();
                                             connection.Close();

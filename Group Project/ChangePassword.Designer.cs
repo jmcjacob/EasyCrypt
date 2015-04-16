@@ -40,66 +40,66 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 32);
+            this.label1.Size = new System.Drawing.Size(78, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "Current\r\nPassword";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 48);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 32);
+            this.label2.Size = new System.Drawing.Size(78, 40);
             this.label2.TabIndex = 1;
             this.label2.Text = "New \r\nPassword";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 91);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 111);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 32);
+            this.label3.Size = new System.Drawing.Size(94, 40);
             this.label3.TabIndex = 2;
             this.label3.Text = "Confim New\r\nPassword\r\n";
             // 
             // currentPassword
             // 
-            this.currentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentPassword.Location = new System.Drawing.Point(97, 12);
+            this.currentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentPassword.Location = new System.Drawing.Point(112, 12);
             this.currentPassword.Name = "currentPassword";
-            this.currentPassword.Size = new System.Drawing.Size(100, 22);
+            this.currentPassword.Size = new System.Drawing.Size(100, 26);
             this.currentPassword.TabIndex = 3;
             this.currentPassword.UseSystemPasswordChar = true;
             // 
             // newPassword
             // 
-            this.newPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newPassword.Location = new System.Drawing.Point(97, 48);
+            this.newPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPassword.Location = new System.Drawing.Point(112, 62);
             this.newPassword.Name = "newPassword";
-            this.newPassword.Size = new System.Drawing.Size(100, 22);
+            this.newPassword.Size = new System.Drawing.Size(100, 26);
             this.newPassword.TabIndex = 4;
             this.newPassword.UseSystemPasswordChar = true;
             // 
             // confimPassword
             // 
-            this.confimPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confimPassword.Location = new System.Drawing.Point(97, 91);
+            this.confimPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confimPassword.Location = new System.Drawing.Point(112, 111);
             this.confimPassword.Name = "confimPassword";
-            this.confimPassword.Size = new System.Drawing.Size(100, 22);
+            this.confimPassword.Size = new System.Drawing.Size(100, 26);
             this.confimPassword.TabIndex = 5;
             this.confimPassword.UseSystemPasswordChar = true;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(15, 129);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(16, 154);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 24);
+            this.button1.Size = new System.Drawing.Size(196, 27);
             this.button1.TabIndex = 6;
             this.button1.Text = "Update Password";
             this.button1.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(211, 165);
+            this.ClientSize = new System.Drawing.Size(224, 193);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.confimPassword);
             this.Controls.Add(this.newPassword);

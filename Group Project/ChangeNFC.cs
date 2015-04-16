@@ -13,6 +13,7 @@ namespace Group_Project
 {
     public partial class ChangeNFC : Form
     {
+        // Variable holding Profile Name.
         public string profileName = "";
 
         public ChangeNFC()
@@ -48,10 +49,12 @@ namespace Group_Project
                     }
                 }
             }
+            // Exception for when NFC reader is not connected.
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Make sure your NFC reader to connected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
