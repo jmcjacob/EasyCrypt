@@ -19,3 +19,6 @@ I kinda like that :P
 
 I am still confused that who's doing the tools bit in the documentation? Is it Mark or me? let me know so that i can get started
 on it if it's me :)
+
+
+***** I was wondering, what if we include a shortish summarised pseudocode for the code written for the program in the group process section or somewhere, would that be helpful and useful? Just an idea! 
