@@ -1,7 +1,7 @@
-EasyCrypt
+#EasyCrypt
 ########
 
-Jacob Carse, 
+Jacob Carse,  
 Matthew Lees,  
 Raviraj Minawala,  
 Mark Pastuszka,  
